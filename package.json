@@ -1,0 +1,24 @@
+{
+  "name": "yuukikonnobot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "konno_yuuki.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonGamerHD/YuukiKonnoBot.git"
+  },
+  "author": "LeonGamer_HD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonGamerHD/YuukiKonnoBot/issues"
+  },
+  "homepage": "https://github.com/LeonGamerHD/YuukiKonnoBot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "opusscript": "0.0.7",
+    "ytdl-core": "^3.1.2"
+  }
+}
