@@ -8,11 +8,11 @@ module.exports = {
         }
 
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-            return message.reply("I'm sorry but you don't have permission to clear the chat!").then(m => m.delete(5000));
+            return message.reply("Es tut mir leid, aber du hast keine Erlaubnis, den Chatverlauf zu löschen!").then(m => m.delete(5000));
         }
 
         if (isNaN(args[0]) || parseInt(args[0]) <= 0) {
-            return message.reply("I'm sorry but that's not a number").then(m => m.delete(5000));
+            return message.reply("Es tut mir leid, aber das ist keine Nummer").then(m => m.delete(5000));
         }
 
         let deleteAmount;
@@ -23,7 +23,7 @@ module.exports = {
         }
 
         message.channel.bulkDelete(deleteAmount, true)
-        .catch(error => message.reply(`Oh it seems something went wrong... this is the error ${error}`));
+        .catch(error => message.reply(`Oh, es scheint, dass etwas schief gelaufen ist ... das ist der Fehler ${error}`));
     
     }
 }

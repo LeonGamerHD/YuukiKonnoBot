@@ -19,15 +19,15 @@ var servers = {};
 
 client.on('ready', () =>{
     console.log('Dieser Bot ist Online! ' + version);
-    client.user.setActivity('ALfheim Online', { type: "PLAYING"}).catch(console.error);
+    client.user.setActivity('https://www.twitch.tv/le0ngamer_hd', { type: "WATCHING"}).catch(console.error);
 });
 
 client.on('guildMemberAdd', member =>{
 
-    const channel = member.guild.channels.cache.find(channel => channel.name === "welcome");
+    const channel = member.guild.channels.cache.find(channel => channel.name === "eingang");
     if(!channel) return;
 
-    channel.send(`Welcome to the Build Aincrad 1:1 scale Discord Server, ${member}! I wish you a lot of fun here and please read the rules in #rules . -Yui`)
+    channel.send(`Willkommen auf dem Community Discord Server von LeonGamer_HD, ${member}! Ich wünsche dir viel Spaß hier und bitte lese dir die Regeln in #regeln.`)
 
 });
 
@@ -39,17 +39,6 @@ client.on('message', message =>{
 
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
-    }
-
-      else if (command === 'server'){
-
-        const embed = new Discord.MessageEmbed()
-        embed.setThumbnail(url="https://i.imgur.com/2P42gO4.png")
-        embed.setTitle(name="Server Status")
-        embed.addField(name="Server IP", value="sao.apexmc.co", inline=true)
-        embed.addField(name="Server Version", value="Forge 1.12.2", inline=true)
-        embed.addField(name="Max Players", value="10.000", inline=false)
-        message.channel.send(embed);
     }
 
       else if(command === 'clear'){
@@ -65,4 +54,4 @@ client.on('message', message =>{
     }
 })
 
-client.login('NzMxMjA1MTk0NjExOTQ5NTc5.Xwiqmg.Bc4mQr7bJDY_FfH8JNTLV5lxugU');
+client.login(process.env.token);
