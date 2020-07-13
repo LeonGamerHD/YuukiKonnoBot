@@ -19,7 +19,7 @@ var servers = {};
 
 client.on('ready', () =>{
     console.log('Dieser Bot ist Online! ' + version);
-    client.user.setActivity('https://www.twitch.tv/le0ngamer_hd', { type: "STREAMING"}).catch(console.error);
+    client.user.setActivity('https://www.twitch.tv/le0ngamer_hd', { type: "PLAYING"}).catch(console.error);
 });
 
 client.on('guildMemberAdd', member =>{
