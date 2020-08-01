@@ -59,9 +59,10 @@ client.on("messageReactionRemove", async (reaction, user) =>{
 client.on('guildMemberAdd', member =>{
 
     const channel = member.guild.channels.cache.find(channel => channel.name === "eingang");
+    const targetChannelId = '732022779163050065'
     if(!channel) return;
 
-    channel.send(`Willkommen auf dem Community Discord Server von LeonGamer_HD, ${member.name}! Ich wünsche dir viel Spaß hier und bitte lese dir die Regeln in #regeln.`)
+    channel.send(`Willkommen auf dem Community Discord Server von LeonGamer_HD, **${member.displayName}**! Ich wünsche dir viel Spaß hier und bitte lese dir die Regeln in ${member.guild.channels.cache.get(targetChannelId).toString()}.`)
     member.roles.add("666704273928749056")
 });
         // Befehle
@@ -70,15 +71,11 @@ client.on('message', message =>{
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-
-    if(command === 'ping'){
-        client.commands.get('ping').execute(message, args);
-    }
-
-      else if(command === 'clear'){
+        // Chat leeren
+    if(command === 'clear'){
         client.commands.get('clear').execute(message, args);
     }
-
+        // Regeln einmal senden
     else if(command === 'rules'){
         let channel = client.channels.cache.get("732022779163050065");
         const embed = new Discord.MessageEmbed()
@@ -87,31 +84,31 @@ client.on('message', message =>{
         .setDescription(`Sei kein Arsch.
 
         Kommt es zu einem Streit mit jemandem, gehe respektvoll mit der Person/den Personen um und versuche zu verstehen, dass die Meinungen, Werte und Ansichten anderer sich von deinen unterscheiden können.
-
+  
         Poste keine Daten, die zu privat sind, und frage auch nicht andere danach. Solche Daten beinhalten Adressen, Telefon- und Handynummern, etc.
-
+  
         NSFW Bilder, Videos, GIFs, etc. Sind in jeglicher weise untersagt
-
+  
         Spam ist (mit Ausnahme von #botspam) in jedem Channel untersagt.
-
-        Bei Fragen, Wünschen und Anregungen darf sich gerne an das Personal oder direkt an LeonGamer_HD gewendet werden.
-
-        Keine Werbung. Livestreams, egal auf welcher Plattform, und Twitch-Clips, welche nicht in Bezug zu LeonGamer_HD stehen, dürfen nur mit vorheriger Zustimmung eines Mods gepostet werden.
-
+  
+        Bei Fragen, Wünschen und Anregungen darf sich gerne an das Personal gewendet werden.
+  
+        Keine Werbung. Livestreams, egal auf welcher Plattform, und Twitch-Clips, welche nicht in Bezug zu irgendeinem Youtuber/Streamer auf diesem Discord Server stehen, dürfen nur mit vorheriger Zustimmung eines Mods gepostet werden.
+  
         Alle Nutzernamen müssen leserlich und leicht zu taggen sein. Sollte dies auf (d)einen Nutzernamen nicht zutreffen, steht es den Mods frei, diesen zu ändern.
-
+  
         Keine Diskriminierung jeglicher Art.
-
+  
         Ein Account pro User.
-
-        Bei Problemen mit Usern bzw. Regelverstößen anderer, meldet euch umgehend bei einem Mod oder bei LeonGamer_HD. Bitte belegt jegliche Anschuldigungen à la "Bob hat Marko Arschkuh genannt." auch mit einem Screenshot als Beweis, (Zeugen-)Aussagen anderer oder dem genauen Wortlaut des 'Täters'.
-
+  
+        Bei Problemen mit Usern bzw. Regelverstößen anderer, meldet euch umgehend bei einem Mod. Bitte belegt jegliche Anschuldigungen à la "Bob hat Marko Arschkuh genannt." auch mit einem Screenshot als Beweis, (Zeugen-)Aussagen anderer oder dem genauen Wortlaut des 'Täters'.
+  
         Benutzt Spoiler Tags. Tut ihr das nicht, kriegt ihr halt 'ne Verwarnung. Ja, das gilt auch für Stuff, der vor 15 Jahren erschien.
-
+  
         Bei drei Verwarnungen fliegst du safe. Eventuell auch schon vorher.
-
-
-        **Die Mods handeln nach eigenem Ermessen!** Wenn du denkst, du wurdest zu Unrecht gebannt, melde dich einfach bei LeonGamer_HD oder einen Mod.
+  
+  
+        **Die Mods handeln nach eigenem Ermessen!** Wenn du denkst, du wurdest zu Unrecht gebannt, melde dich einem Mod.
 
 
         was jetzt?
@@ -121,6 +118,7 @@ client.on('message', message =>{
         })
     }
 
+        // Hilfe eben
       else if(command === 'help'){
         client.commands.get('help').execute(message, args);
     }
