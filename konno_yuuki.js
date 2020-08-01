@@ -122,6 +122,25 @@ client.on('message', message =>{
       else if(command === 'help'){
         client.commands.get('help').execute(message, args);
     }
+
+    else if(command === 'roleselect'){
+        let channel = client.channels.cache.get("670334955477401601");
+        const embed = new Discord.MessageEmbed()
+        .setColor(0x2ECC71)
+        .setTitle(name="**Rollenauswahl**")
+        .setDescription(`Reagiere mit dem jeweiligen Emoji um den dazugehörigen Rang zu erhalten
+        
+        📰 : Youtube/Twitch News
+        
+        🗞️ : Server News
+        
+        <:genshinnews:739168155825602583> : Genshin Impact News`)
+        channel.send(embed).then(async msg => {
+            await msg.react("📰");
+            await msg.react("🗞️");
+            await msg.react('739168155825602583');
+        })
+    }
 })
 
-client.login(process.env.token);
+client.login('NzA2MjgwNDMyODA2Nzg5MTgw.XwufDQ.JLMyr75isF4oFBp_XYta6HxEgfo');
