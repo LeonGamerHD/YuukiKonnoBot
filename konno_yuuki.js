@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
-const prefix = '!'
+const prefix = 'Y/'
 const fs = require('fs');
 
 client.commands = new Discord.Collection();
@@ -22,6 +22,7 @@ client.on('ready', () =>{
     client.user.setActivity('LeonGamer_HD', { type: "STREAMING", url: "https://www.twitch.tv/le0ngamer_hd"}).catch(console.error);
 });
         // Nachrichten Reactionen
+            // Verifikations Reaction
 client.on("messageReactionAdd", async (reaction, user) => {
     if (reaction.message.partial) await reaction.message.fetch();
     if (reaction.partial) await reaction.fetch();
@@ -53,6 +54,103 @@ client.on("messageReactionRemove", async (reaction, user) =>{
         await reaction.message.guild.members.cache.get(user.id).roles.remove("592675190320660500")
         await reaction.message.guild.members.cache.get(user.id).roles.add("666704273928749056")
       }
+    }
+})
+        // News Reactionen
+            // Youtube/Twtich News
+client.on("messageReactionAdd", async (reaction, user) => {
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+    
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+    if (reaction.message.guild.id !== "583773838500691968") return;
+    
+    if (reaction.message.channel.id === "670334955477401601") {
+      if (reaction.emoji.name === "📰") {
+        await reaction.message.guild.members.cache.get(user.id).roles.add("670334388436729867")
+        }
+    } else {
+        return;
+    }
+})
+
+client.on("messageReactionRemove", async (reaction, user) =>{
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+    if (reaction.message.guild.id !== "583773838500691968") return;
+
+    if (reaction.message.channel.id === "670334955477401601") {
+      if (reaction.emoji.name === "📰") {
+        await reaction.message.guild.members.cache.get(user.id).roles.remove("670334388436729867")
+      }
+    }
+})
+            // Server News
+client.on("messageReactionAdd", async (reaction, user) => {
+    if (reaction.message.partial) await reaction.message.fetch();
+    if (reaction.partial) await reaction.fetch();
+                
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+    if (reaction.message.guild.id !== "583773838500691968") return;
+                
+    if (reaction.message.channel.id === "670334955477401601") {
+      if (reaction.emoji.name === "🗞️") {
+        await reaction.message.guild.members.cache.get(user.id).roles.add("670335456294207518")
+       }
+        } else {
+            return;
+    }
+})
+            
+client.on("messageReactionRemove", async (reaction, user) =>{
+        if (reaction.message.partial) await reaction.message.fetch();
+        if (reaction.partial) await reaction.fetch();
+            
+        if (user.bot) return;
+        if (!reaction.message.guild) return;
+        if (reaction.message.guild.id !== "583773838500691968") return;
+            
+        if (reaction.message.channel.id === "670334955477401601") {
+          if (reaction.emoji.name === "🗞️") {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("670335456294207518")
+        }
+    }
+})
+            // Genshin News
+client.on("messageReactionAdd", async (reaction, user) => {
+        if (reaction.message.partial) await reaction.message.fetch();
+         if (reaction.partial) await reaction.fetch();
+                            
+        if (user.bot) return;
+        if (!reaction.message.guild) return;
+        if (reaction.message.guild.id !== "583773838500691968") return;
+                            
+        if (reaction.message.channel.id === "670334955477401601") {
+          if (reaction.emoji.name === `<:genshinnews:739168155825602583>`) {
+            await reaction.message.guild.members.cache.get(user.id).roles.add("738860773832654928")
+        }
+         } else {
+              return;
+    }
+})
+
+client.on("messageReactionRemove", async (reaction, user) =>{
+        if (reaction.message.partial) await reaction.message.fetch();
+        if (reaction.partial) await reaction.fetch();
+                    
+        if (user.bot) return;
+        if (!reaction.message.guild) return;
+        if (reaction.message.guild.id !== "583773838500691968") return;
+                    
+        if (reaction.message.channel.id === "670334955477401601") {
+          if (reaction.emoji.name === '739168155825602583') {
+            await reaction.message.guild.members.cache.get(user.id).roles.remove("738860773832654928")
+        }
     }
 })
         // Willkommens Nachricht
