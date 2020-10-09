@@ -130,7 +130,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if (!reaction.message.guild) return;
         if (reaction.message.guild.id !== "583773838500691968") return;
                             
-        if (reaction.message.channel.id === "670334955477401601") {
+        if (reaction.message.channel.id === "670334955477401601") { 
           if (reaction.emoji.name === `<:genshinnews:739168155825602583>`) {
             await reaction.message.guild.members.cache.get(user.id).roles.add("738860773832654928")
         }
@@ -241,4 +241,4 @@ client.on('message', message =>{
     }
 })
 
-client.login(process.env.token);
+client.login('NzA2MjgwNDMyODA2Nzg5MTgw.XwufDQ.JLMyr75isF4oFBp_XYta6HxEgfo');
