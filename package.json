@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/LeonGamerHD/YuukiKonnoBot#readme",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.5.0",
+    "node-fetch": "^2.6.1",
     "opusscript": "0.0.7",
     "ytdl-core": "^3.2.0"
   }
